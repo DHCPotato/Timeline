@@ -1,0 +1,352 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Ingra, Arial, Helvetica, sans-serif;
+  background: #f7f2f0;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #549ca1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #549ca1;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.container.right::after {
+  left: -8px;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #549ca1;
+  z-index: 1;
+}
+
+.container.right::before {
+  left: 8px;
+}
+
+.container .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 8px);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #549ca1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.container.left .date {
+  right: -75px;
+}
+
+.container.right .date {
+  left: -75px;
+}
+
+.container .icon {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 9px 0;
+  top: calc(50% - 20px);
+  background: #d9733d;
+  border: 2px solid #549ca1;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #549ca1;
+  z-index: 1;
+}
+
+.container.left .icon {
+  right: 56px;
+}
+
+.container.right .icon {
+  left: 56px;
+}
+
+.container .content {
+  padding: 30px 90px 30px 30px;
+  background: #d9733d;
+  position: relative;
+  border-radius: 0 500px 500px 0;
+}
+
+.container.right .content {
+  padding: 30px 30px 30px 90px;
+  border-radius: 500px 0 0 500px;
+}
+
+.container .content h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #f7f2f0;
+}
+
+.container .content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: #f7f2f0;
+}
+
+@media (max-width: 767.98px) {
+  .timeline::after {
+    left: 90px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 30px;
+  }
+
+  .container.right {
+    left: 0%;
+  }
+
+  .container.left::after, 
+  .container.right::after {
+    left: 82px;
+  }
+
+  .container.left::before,
+  .container.right::before {
+    left: 100px;
+    border-color: transparent #006E51 transparent transparent;
+  }
+
+  .container.left .date,
+  .container.right .date {
+    right: auto;
+    left: 15px;
+  }
+
+  .container.left .icon,
+  .container.right .icon {
+    right: auto;
+    left: 146px;
+  }
+
+  .container.left .content,
+  .container.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 500px 0 0 500px;
+  }
+}
+.container:hover .content {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Adds a slight shadow */
+    transform: translateX(10px); /* Moves only the orange part slightly right */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+  }
+  
+  .container.right:hover .content {
+    transform: translateX(-10px); /* Moves the orange part slightly left for right containers */
+  }
+
+.container.left .date {
+    position: absolute;
+    right: -75px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #549ca1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Position date for right containers */
+  .container.right .date {
+    position: absolute;
+    left: -75px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #549ca1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  /* Ensure no clipping or hidden overflow */
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Initial state for timeline containers */
+  .container {
+    opacity: 0; /* Initially hidden */
+  }
+  
+  /* Animation for left-aligned containers */
+  .container.left {
+    animation: slideInLeft 0.8s ease-out forwards; /* Animates from the left */
+  }
+  
+  /* Animation for right-aligned containers */
+  .container.right {
+    animation: slideInRight 0.8s ease-out forwards; /* Animates from the right */
+  }
+  /* Staggered animation for left containers */
+.container.left:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  
+  .container.left:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  
+  .container.left:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  /* Staggered animation for right containers */
+  .container.right:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  
+  .container.right:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  
+  .container.right:nth-child(3) {
+    animation-delay: 0.7s;
+  }
+  /* Hide carousel by default */
+.carousel {
+  position: absolute;
+  top: 50%;
+  left: 100%; /* Positioned to the right of the timeline */
+  width: 300px; /* Double the size of the orange containers */
+  height: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) scale(0.5);
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  background: #fff;
+  border: 2px solid #549ca1;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Display carousel on hover */
+.container:hover .carousel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Carousel images */
+.carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: none; /* Hide images by default */
+}
+.carousel img.active {
+  display: block;
+}
+
+/* For right-aligned containers */
+.container.right .carousel {
+  left: auto;
+  right: 100%;
+}
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #549ca1;
+  border: none;
+  border-radius: 25%;
+  width: 30px;
+  font-size: 18px;
+  color: #f7f2f0;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.carousel .next-btn {
+  right: 10px;
+}
