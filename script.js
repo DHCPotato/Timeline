@@ -97,3 +97,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const images = carousel.querySelectorAll('img'); // Get all images
+    const prevBtn = carousel.querySelector('.prev-btn'); // Get "Previous" button
+    const nextBtn = carousel.querySelector('.next-btn'); // Get "Next" button
+    let currentIndex = 0; // Start with the first image
+
+    // Modal elements
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.modal .close');
+    const modalPrevBtn = document.querySelector('.modal-prev-btn');
+    const modalNextBtn = document.querySelector('.modal-next-btn');
+
+    // Show the first image
+    images[currentIndex].classList.add('active');
+
+    // Next button functionality for carousel
+    nextBtn.addEventListener('click', () => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    });
+
+    // Previous button functionality for carousel
+    prevBtn.addEventListener('click', () => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      images[currentIndex].classList.add('active');
+    });
+
+    // Open modal on image click
+    images.forEach((image, index) => {
+      image.addEventListener('click', () => {
+        currentIndex = index; // Set the current index for the modal
+        modalImg.src = image.src; // Set modal image source
+        modal.classList.add('show'); // Display the modal
+      });
+    });
+
+    // Close modal on close button click
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('show'); // Hide the modal
+    });
+
+    // Close modal on clicking outside the image
+    window.addEventListener('click', event => {
+      if (event.target === modal) {
+        modal.classList.remove('show'); // Hide the modal
+      }
+    });
+
+    // Modal Next button functionality
+    modalNextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length; // Increment index
+      modalImg.src = images[currentIndex].src; // Update modal image
+    });
+
+    // Modal Previous button functionality
+    modalPrevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length; // Decrement index
+      modalImg.src = images[currentIndex].src; // Update modal image
+    });
+  });
+});
