@@ -323,6 +323,7 @@ body {
   height: auto;
   object-fit: cover;
   display: none; /* Hide images by default */
+  cursor: pointer;
 }
 .carousel img.active {
   display: block;
@@ -349,4 +350,65 @@ body {
 }
 .carousel .next-btn {
   right: 10px;
+}
+/* Modal container */
+.modal {
+  display: none; /* Ensure modal is hidden by default */
+  position: fixed;
+  z-index: 1000; /* Ensure it appears above other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  visibility: hidden; /* Ensure the modal is not visible */
+  opacity: 0; /* Ensure opacity is 0 by default */
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out; /* Smooth transition for appearance */
+}
+
+/* Show the modal */
+.modal.show {
+  visibility: visible;
+  opacity: 1; /* Make modal visible */
+  transition: visibility 0s linear 0s, opacity 0.3s ease-in-out;
+}
+
+/* Modal image */
+.modal-content {
+  max-width: 80%; /* Limit width to 80% of the viewport */
+  max-height: 80%; /* Limit height to 80% of the viewport */
+  margin: 0 auto; /* Center horizontally */
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: #f7f2f0; /* Lighten the color on hover */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
