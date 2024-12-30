@@ -47,3 +47,53 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const images = carousel.querySelectorAll('img'); // Get all images
+      const prevBtn = carousel.querySelector('.prev-btn'); // Get the "Previous" button
+      const nextBtn = carousel.querySelector('.next-btn'); // Get the "Next" button
+      let currentIndex = 0; // Start with the first image
+  
+      // Show the first image (make sure this matches the initial setup)
+      images[currentIndex].classList.add('active');
+  
+      // Next button functionality
+      nextBtn.addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+      });
+  
+      // Previous button functionality
+      prevBtn.addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        images[currentIndex].classList.add('active');
+      });
+  
+     // Modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.modal .close');
+
+    // Open modal on image click
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        modalImg.src = image.src; // Set modal image source
+        modal.classList.add('show'); // Add "show" class to display modal
+      });
+    });
+
+    // Close modal on close button click
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('show'); // Remove "show" class to hide modal
+    });
+
+    // Close modal on clicking outside the image
+    window.addEventListener('click', event => {
+      if (event.target === modal) {
+        modal.classList.remove('show'); // Remove "show" class to hide modal
+      }
+    });
+  });
+});
