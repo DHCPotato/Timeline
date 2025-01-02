@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: Ingra, Arial, Helvetica, sans-serif;
-  background: #f7f2f0;
+  background: #E0D9CF;
 }
 
 .timeline {
@@ -22,7 +22,7 @@ body {
   content: '';
   position: absolute;
   width: 2px;
-  background: #549ca1;
+  background: #1C2D40;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -51,8 +51,8 @@ body {
   height: 16px;
   top: calc(50% - 8px);
   right: -8px;
-  background: #ffffff;
-  border: 2px solid #549ca1;
+  background: #1C2D40;
+  border: 2px solid #1C2D40;
   border-radius: 16px;
   z-index: 1;
 }
@@ -68,7 +68,7 @@ body {
   height: 2px;
   top: calc(50% - 1px);
   right: 8px;
-  background: #549ca1;
+  background: #1C2D40;
   z-index: 1;
 }
 
@@ -83,7 +83,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-  color: #549ca1;
+  color: #1C2D40;
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 1;
@@ -104,12 +104,12 @@ body {
   height: 40px;
   padding: 9px 0;
   top: calc(50% - 20px);
-  background: #d9733d;
-  border: 2px solid #549ca1;
+  background: #D4583d;
+  border: 2px solid #1C2D40;
   border-radius: 40px;
   text-align: center;
   font-size: 18px;
-  color: #549ca1;
+  color: #1C2D40;
   z-index: 1;
 }
 
@@ -123,7 +123,7 @@ body {
 
 .container .content {
   padding: 30px 90px 30px 30px;
-  background: #d9733d;
+  background: #D4583D;
   position: relative;
   border-radius: 0 500px 500px 0;
 }
@@ -208,7 +208,7 @@ body {
     transform: translateY(-50%);
     font-size: 14px;
     font-weight: bold;
-    color: #549ca1;
+    color: #1C2D40;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -221,7 +221,7 @@ body {
     transform: translateY(-50%);
     font-size: 14px;
     font-weight: bold;
-    color: #549ca1;
+    color: #1C2D40;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -299,7 +299,7 @@ body {
   transform: translateY(-50%) scale(0.5);
   transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
   background: #fff;
-  border: 2px solid #549ca1;
+  border: 2px solid #1C2D40;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -338,12 +338,12 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #549ca1;
+  background: #1C2D40;
   border: none;
   border-radius: 25%;
   width: 30px;
   font-size: 18px;
-  color: #f7f2f0;
+  color: #E0D9CF;
   cursor: pointer;
   z-index: 5;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
