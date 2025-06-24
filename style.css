@@ -395,3 +395,7 @@ body {
     opacity: 1;
   }
 }
+
+.footer {
+  position: relative;
+}
