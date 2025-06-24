@@ -397,5 +397,6 @@ body {
 }
 
 .footer {
-  position: relative;
+  text-align: center;
+  margin-top: 40px;
 }
