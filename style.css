@@ -400,3 +400,13 @@ body {
   text-align: center;
   margin-top: 40px;
 }
+.leadership-change {
+    background: #1C2D40 !important;
+}
+
+.leadership-change-icon {
+    background-color: #1C2D40 !important;
+    color: #f7f2f0 !important;
+    border: 2px solid #f7f2f0 !important;
+}
+
